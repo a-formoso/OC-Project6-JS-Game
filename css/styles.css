@@ -1,0 +1,176 @@
+body {
+  background: lightgrey;
+  font-family: 'Audiowide', cursive;
+}
+#wrapper {
+  height: auto;
+}
+.header {
+  /*text-align: center;*/
+  border-radius: 5px 5px 0 0;
+  /*background-color: rgba(255,255,255,0.9);*/
+  /*color: darkgrey;*/
+  background-color: black;
+  padding: 3px;
+  width: 40%;
+  margin: 0px auto;
+  margin-bottom: 0px;
+}
+div.players-container {
+  border-bottom: 1px solid #660099;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  padding: 4px 0px 0px;
+  margin-top: 0;
+  margin-bottom: 2px;
+  background-color: #00065a;
+}
+ul.player-controls {
+  /*border: 1px solid blue;*/
+  margin: 0 auto;
+  padding-left: 0;
+  display: flex; 
+  background-color: #00065a;
+}
+ul.player-controls li {
+  list-style: none;
+}
+span, button {
+  height: 30px;
+  padding: 0 8px;
+  font-size: 15px;
+}
+button {
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+li button.pl1-attack-btn, li button.pl2-attack-btn {
+    background-color: #a70000;
+    color:  #000;
+}
+ul.player-controls li img {
+  width: 30px;
+}
+ul.player-controls li:last-child {
+  background-color: #00065a;
+  color: #9055A2;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+li span.pl1-health-pts, li span.pl2-health-pts  {
+  font-weight: 600;
+}
+div.timeline-container {
+  padding: 8px;
+  margin: 0;
+  /*border: 1px solid orange;*/
+  text-align: center;
+}
+div span#timeline {
+  font-family: 'Chakra Petch', sans-serif;
+  margin: 0 auto;
+  color: #9055A2;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+table#game-map {
+  text-align: center;
+  border: 3px solid darkgrey;
+  background-color: rgba(255,255,255,0.9);
+  color: darkgrey;
+  border-radius: 5px;
+  padding: 10px;
+  /*width: 50%;*/
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+#game-map td {
+  width: 50px;
+  height: 50px;
+  border: 0.5px solid lightgrey;
+}
+
+tr { padding: 5px; }
+
+/*.wall-wrapper, .weapon-wrapper {
+  padding: 0;
+  margin: 0;
+}*/
+
+.wall {
+  width: 96%;
+  height: 96%;
+  border-radius: 2px;
+  background: radial-gradient(circle, black, darkgrey);
+  /*for Bevel shape - https://css-tricks.com/working-with-shapes-in-web-design/
+  -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); */
+}
+
+.weapon {
+  background-color: #CEF3FF;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background: #CEF3FF no-repeat center;*/
+}
+.weapon {
+  background-size: 70%;
+}
+.weapon-0 {
+  background-image: url('../images/weapon-oc.png');
+}
+.weapon-1 {
+  background-image: url('../images/weapon-html.png');
+}
+.weapon-2 {
+  background-image: url('../images/weapon-css.png');
+}
+.weapon-3 {
+  background-image: url('../images/weapon-js.png');
+}
+.weapon-4 {
+  background-image: url('../images/weapon-c++.png');
+}
+
+.player {
+  background-size: 90%;
+  background-color: #FFA711;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player1 {
+  background-image: url('../images/player1.png') !important;
+}
+.player2 {
+  background-image: url('../images/player2.png') !important;
+}
+
+.accessible {
+  background-color: #FDF3B7;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  ul.player-controls {
+   display: block; /*stack elements vertically, on their normal document flow*/
+   text-align: center; 
+  }
+  .defend-btn {
+    margin-top: 5px;
+  }
+}
+
+#new-game {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  width: 110px;
+  height: 55px;
+  border: 2px solid #73AD21;AFC97E;
+  background-color: #AFC97E;
+}

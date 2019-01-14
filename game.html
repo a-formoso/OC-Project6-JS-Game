@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Listing Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Heading -->
+  	<div class="header">
+      <!-- Game players -->
+      <div class="players-container">
+        <ul class="player-controls player1-controls">
+          <li><img src="images/player1.png" title="Axiom spaceship"/></li>
+          <li><button id="pl1Attack" class="pl1-attack-btn attack-btn">Attack</button></li>
+          <li><button class="pl1-defend-btn defend-btn">Defend</button></li>
+          <li><span class="pl1-health-pts">100</span></li>
+        </ul>
+        <ul class="player-controls player2-controls">
+          <li><img src="images/player2.png" title="Bilkis spaceship"/></li>
+          <li><button id="pl2Attack" class="pl2-attack-btn attack-btn">Attack</button></li>
+          <li><button class="pl2-defend-btn defend-btn">Defend</button></li>
+          <li><span class="pl2-health-pts">100</span></li>
+        </ul>      
+      </div>
+      <!-- Game timeline -->
+      <div class="timeline-container">
+        <span id="timeline">Welcome to the adventure! Let the journey fun begin</span>
+      </div>
+  	</div>
+
+    <!-- Game Map -->
+    <div class="container">
+      <table id="game-map" cellspacing="1">
+        <tbody id="grid"></tbody><!-- game grid -->
+      </table>  
+    </div> <!--/.container -->
+
+    <!-- button -->
+    <button id="new-game">New Game</button>
+    
+  </div>
+
+  <!-- jQuery via CDN -->
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script src="js/game.js"></script>
+</body>
+
+</html>
+
