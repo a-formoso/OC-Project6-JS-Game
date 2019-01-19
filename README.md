@@ -1,19 +1,25 @@
-#JavaScript Game
+# JavaScript Game
 
 ----
-## OC Front-end Web Developer [path](https://openclassrooms.com/en/paths/61-front-end-developer)
+## OpenClassrooms: Front-end Web Developer [path](https://openclassrooms.com/en/paths/61-front-end-developer)
 
-----
 ### Project 6 - Build a JS turn-based board game
 
-###Project deliverables:
-* Randomly generate the game map
-* On the map, there should be a maximum number of 4 weapons available for palyers to collect
-* Players should be able to collect weapons when they reach location boxes where these weapons are available
-* and another step
-* and another step
-* and another step
-* and another step
+#### Project deliverables: 
+* Randomly generate the game map 
+* Randomly add 2 players, obstacles, and a maximum of 4 different weapons
+* Game players shouldn't touch each other
+* Game weapons can be of any type (e.g.: programming languages)
+* Each weapon can inflict different damage points (default weapon must inflict 10 pts damage) 
+* Game obstacles represent the unavailable (dimmed) boxes, players can't pass through these directly
+* For each turn, a player can move from one to three boxes (horizontally or vertically)
+* If a player passes over a box containing a weapon, they leave their current weapon on site and replace it with the new one
+* If players cross over adjacent squares (horizontally or vertically), a battle begins
+* During battle: each player attacks in turn
+* During battle: the damage depends on the player's weapon
+* During battle: the player can choose to attack or defend against the next shot
+* During battle: if a player chooses to defend, they sustain 50% less damage than normal
+* As soon as the life points of a player (initially 100) falls to 0, they lose. A message appears and the game is over.
 
 ----
 ##### *Alexandre Formoso 2019*
