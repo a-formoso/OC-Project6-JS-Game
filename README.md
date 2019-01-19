@@ -21,5 +21,9 @@
 * During battle: if a player chooses to defend, they sustain 50% less damage than normal
 * As soon as the life points of a player (initially 100) falls to 0, they lose. A message appears and the game is over.
 
+#### Play the game by clicking [here](http://openclassrooms.com/)
+
+![game printscreen](/images/game-preview.png)
+
 ----
 ##### *Alexandre Formoso 2019*
