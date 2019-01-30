@@ -1,9 +1,37 @@
 body {
   background: lightgrey;
   font-family: 'Audiowide', cursive;
+  /*background-color: #3e464e;#616970;*/
+  /*background: url() no-repeat;*/
+  /*background: linear-gradient(black, white);*/
+  /*background: radial-gradient(circle, black, white);*/
+  background-image:
+    linear-gradient(
+      to right, 
+      red, 
+      #f06d06, 
+      rgb(255, 255, 0), 
+      green
+    );
+}
+* {
+  margin: 0;
+  padding: 0;
+  /*including paddings borders in els' total width and height*/
+  -moz-box-sizing: border-box; /*Firefox*/
+  -ms-box-sizing: border-box; /*IE*/
+  -webkit-box-sizing: border-box; /*Chrome and Safari*/
+  box-sizing: border-box;
+  /*disabling selection of els*/
+  -moz-user-select: none; /*Firefox*/
+  -ms-user-select: none; /*IE*/
+  -webkit-user-select: none; /*Chrome and Safari*/
+  user-select: none;
 }
 #wrapper {
-  height: auto;
+  /*height: auto;*/
+  
+  /*border: 1px solid red;*/
 }
 .header {
   /*text-align: center;*/
@@ -12,9 +40,14 @@ body {
   /*color: darkgrey;*/
   background-color: black;
   padding: 3px;
-  width: 40%;
+  /*width: 40%;*/
   margin: 0px auto;
   margin-bottom: 0px;
+  width: 580px;
+  margin-top: 5px;
+}
+.game-container {
+  margin: auto;
 }
 div.players-container {
   border-bottom: 1px solid #660099;
@@ -38,13 +71,23 @@ ul.player-controls li {
 span, button {
   height: 30px;
   padding: 0 8px;
-  font-size: 15px;
+  font-size: 14px;
 }
 button {
   margin-left: 5px;
   margin-right: 5px;
   border-radius: 2px;
   letter-spacing: 0.5px;
+}
+button:hover {
+  cursor: pointer;
+}
+.accessible:hover {
+  cursor: cell;
+}
+button#new-game {
+  border: 2px solid #73AD21;
+  background-color: #AFC97E;
 }
 li button.pl1-attack-btn, li button.pl2-attack-btn {
     background-color: #a70000;
@@ -59,7 +102,7 @@ ul.player-controls li:last-child {
   padding-top: 6px;
   padding-bottom: 6px;
 }
-li span.pl1-health-pts, li span.pl2-health-pts  {
+li span#pl1-health-pts, li span#pl2-health-pts  {
   font-weight: 600;
 }
 div.timeline-container {
@@ -78,23 +121,22 @@ div span#timeline {
 
 table#game-map {
   text-align: center;
-  border: 3px solid darkgrey;
-  background-color: rgba(255,255,255,0.9);
+  border: 3px solid purple;
+  background-color: rgba(255,255,255,0.9) !important;
   color: darkgrey;
   border-radius: 5px;
   padding: 10px;
   /*width: 50%;*/
   margin: 0 auto;
-  margin-bottom: 20px;
 }
-
 #game-map td {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border: 0.5px solid lightgrey;
 }
-
-tr { padding: 5px; }
+tr { 
+  padding: 5px; 
+}
 
 /*.wall-wrapper, .weapon-wrapper {
   padding: 0;
@@ -154,6 +196,86 @@ tr { padding: 5px; }
   background-color: #FDF3B7;
 }
 
+/*game results pop-up window*/
+.wrapper, .game-container {
+  /*display: none;*/
+}
+#opacity-layer {
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0.8;
+  position: fixed; 
+  background-color: black; 
+  z-index: 10;
+  display: none;
+}
+#result-popUp {
+  z-index: 10;
+  position: fixed;
+  width: 500px; 
+  height: auto;
+  /*display: none;*/
+  text-align: center; 
+}
+#popUp-body {
+  background: white;
+  border-radius: 5px 5px 0 0;
+  height: 200px;
+  border-style: solid;
+  border-width: 2px 2px 0px 2px;
+  border-color: #FFA60C
+}
+div#winner-img-wrapper {
+  position: relative; 
+  width: 120px;
+  height: 120px; 
+  margin: 10px auto;
+  /*top: 10px; */
+}
+div#winner-img-wrapper img#winner-img {
+  width: 120px;
+  width: 120px;
+  padding: 15px 0 5px;
+}
+#popUp-body h2#winner-heading {
+  padding-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  text-align: center; 
+  color: #4d0000; /* dark purple */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+#popUp-body p#winner-p {
+  color: #4d0000;
+  font-size: 16px;
+}
+#popUp-footer {
+  background-color: #FDF4B6;
+  height: 90px; 
+  padding: 15px; 
+  border-style: solid;
+  border-width: 0px 2px 2px 2px; 
+  border-color: #FFA60C;#511519;
+  border-bottom-right-radius: 7px; 
+  border-bottom-left-radius: 7px;
+}
+button#popUp-newGame-btn {
+  width: 160px;
+  height: 60px;
+  padding: 0 20px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  background-color: #FFA60C;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+
 /* Media Queries */
 @media only screen and (max-width: 1200px) {
   ul.player-controls {
@@ -164,13 +286,27 @@ tr { padding: 5px; }
     margin-top: 5px;
   }
 }
-
-#new-game {
-  position: absolute;
-  top: 150px;
-  right: 0;
-  width: 110px;
-  height: 55px;
-  border: 2px solid #73AD21;AFC97E;
-  background-color: #AFC97E;
+@media only screen and (max-width: 736px) {
+  .wrapper {
+    height: auto;
+  }
+  .header {
+   margin-top: 0;
+   width: 100%;
+   text-align: center; 
+  }
+  .player2-controls li img {
+    padding-bottom: 4.94px;
+  }
+  #new-game {
+    /*display: none;*/
+    margin-top: 35px;
+    height: 65px;
+    vertical-align: center;
+  }
+  #game-map {
+    width: 100%;
+    height: 100vh; 
+  }
 }
+

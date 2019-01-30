@@ -13,40 +13,49 @@
 
 <body>
   <div id="wrapper">
-    <!-- Heading -->
-  	<div class="header">
-      <!-- Game players -->
-      <div class="players-container">
-        <ul class="player-controls player1-controls">
-          <li><img src="images/player1.png" title="Axiom spaceship"/></li>
-          <li><button id="pl1Attack" class="pl1-attack-btn attack-btn">Attack</button></li>
-          <li><button class="pl1-defend-btn defend-btn">Defend</button></li>
-          <li><span class="pl1-health-pts">100</span></li>
-        </ul>
-        <ul class="player-controls player2-controls">
-          <li><img src="images/player2.png" title="Bilkis spaceship"/></li>
-          <li><button id="pl2Attack" class="pl2-attack-btn attack-btn">Attack</button></li>
-          <li><button class="pl2-defend-btn defend-btn">Defend</button></li>
-          <li><span class="pl2-health-pts">100</span></li>
-        </ul>      
-      </div>
-      <!-- Game timeline -->
-      <div class="timeline-container">
-        <span id="timeline">Welcome to the adventure!</span>
-      </div>
-  	</div>
-
-    <!-- Game Map -->
-    <div class="container">
+    <div class="game-container">
+      <!-- Game Header -->
+    	<div class="header">
+        <div class="players-container"> <!-- Player1 controls -->
+          <ul class="player-controls player1-controls">
+            <li><img src="images/player1.png" title="Axiom spaceship"/></li>
+            <li><button id="pl1-Attack" class="pl1-attack-btn attack-btn">Attack</button></li>
+            <li><button id="pl1-Defend" class="pl1-defend-btn defend-btn">Defend</button></li>
+            <li><span id="pl1-health-pts">100</span></li>
+          </ul>
+          <!-- New Game Button-->
+          <button id="new-game">New Game</button>
+          <ul class="player-controls player2-controls"> <!-- Player2 controls -->
+            <li><img src="images/player2.png" title="Bilkis spaceship"/></li>
+            <li><button id="pl2-Attack" class="pl2-attack-btn attack-btn">Attack</button></li>
+            <li><button id="pl2-Defend" class="pl2-defend-btn defend-btn">Defend</button></li>
+            <li><span id="pl2-health-pts">100</span></li>
+          </ul>
+        </div>
+        <!-- Game Timeline -->
+        <div class="timeline-container">
+          <span id="timeline">Welcome to the adventure!</span>
+        </div>
+    	</div>
+      <!-- Game Board -->
       <table id="game-map" cellspacing="1">
         <tbody id="grid"></tbody><!-- game grid -->
       </table>  
-    </div> <!--/.container -->
+    </div> 
+  </div><!--/.wrapper -->
 
-    <!-- button -->
-    <button id="new-game">New Game</button>
-    
-  </div>
+  <!-- Game Result -->
+    <div id="opacity-layer"></div>
+    <div id="result-popUp">
+      <div id="popUp-body">
+        <div id="winner-img-wrapper"><img id="winner-img" src="images/player2.png"/></div>
+        <h2 id="winner-heading"><em id="winner-name">Bilkis</em> Wins!</h2>
+        <p id="winner-p"><span id="winner-pts">50</span>pts remaining</p>
+      </div>
+      <div id="popUp-footer">
+        <button id="popUp-newGame-btn">New Game</button>
+      </div>
+    </div>
 
   <!-- jQuery via CDN -->
   <script
