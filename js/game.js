@@ -83,7 +83,7 @@ Map.prototype.weapons_ = function() {
 	}	
 };
 
-// var gameTimeline = document.getElementById('timeline');
+var gameTimeline = document.getElementById('timeline');
 
 /** Creating the players' blueprint, "character"
 ===============================================**/
@@ -98,6 +98,7 @@ var character = {
         this.cssClass = cssClass; //player1, player2
         this.position = {x:0, y:0};
         this.defence = {status: 'off'}; //update by reference
+        this.isLifeTaken = {status: null}
     },
 	info: function () {
 	    var description = this.name + " has " + this.health + " health points and " +
@@ -108,6 +109,11 @@ var character = {
 		var describe = this.name + " picks up new weapon, " + this.currentWeapon.name + ". " + 
 		this.name + " can now inflict " + this.currentWeapon.damage + " pts damage";
 		return describe;
+	},
+	healthCheck: function() {
+		var des = this.name + " is unable to continue \n (they've been eliminated)";
+		gameTimeline.innerHTML = this.name + " is unable to continue (they've been eliminated)";
+		return des;		
 	},
     attack: function (target) {
         //1 - if healthy, attack enemy!
@@ -137,10 +143,14 @@ var character = {
             	target.health = 0;
             	console.log(target.name + " has " + target.health + " pts remaining");
 
+				var answer = new Boolean(true);
+				target.isLifeTaken.status = answer;
+				console.log("isLifeTaken = " + target.isLifeTaken.status); 
+
             	resultsCardWinnerImg = this.cssClass;
         		resultsCardWinnerPts = this.health;
         		resultsCardWinnerName = this.name;
-            	setTimeout(gameResult, 800); //setTimeout(callback, delay)
+            	// setTimeout(gameResult, 800); //setTimeout(callback, delay)
             }
             if (target.cssClass === "player1") {
             	document.getElementById('pl1-health-pts').innerHTML = target.health;
@@ -162,12 +172,6 @@ var character = {
 				}
             }  
         }
-        //2 - if unhealthy, do nothing
-        else {
-			console.log(this.name + " is unable to continue (they've been eliminated)");
-            gameTimeline.innerHTML = this.name + " is unable to continue (they've been eliminated)";
-			console.log(target.name + "; wins with " + target.health + " pts remaining");
-        } 
 	},
 	defend: function () {
 		this.defence.status = 'on';
@@ -188,7 +192,7 @@ Map.prototype.players_ = function() {
 	var spaceships = [player1, player2]; 
 	this.players = spaceships;
 	//randomly create 2 unique values
-	while(this.wallWeapPlayersCells.length < this.numbWalls + this.numbWeapons + spaceships.length) {
+	while (this.wallWeapPlayersCells.length < this.numbWalls + this.numbWeapons + spaceships.length) {
 		var tdNo = Math.ceil(Math.random()*(this.board[0].length*this.board.length) - 1);
 		if(this.wallWeapPlayersCells.indexOf(tdNo) > -1) { 
 			continue; 
@@ -207,9 +211,20 @@ Map.prototype.players_ = function() {
 	}
 };
 
+
 /** Creating Map object instance: playerMovement_
 =============================================================**/
 Map.prototype.playerMovement_ = function (index) {
+	if (this.players[index].health <= 0) { 
+		console.log(this.players[index].healthCheck());
+        return setTimeout(gameResult, 800); //setTimeout(callback, delay)
+	} else {
+		var enemyOnSight = function() {
+			console.log("Enemy on sight. Initiate attack or defend");
+			gameTimeline.innerHTML = "Enemy on sight. Initiate attack or defend";
+			$( "button.accessible" ).show(); //show attack, defend btns
+		}
+	} 
 	var highlightedCellsArr = [];
 	var gameTimeline = document.getElementById('timeline');
 	var plPos = this.players[index].position; //property access: bracket notation. index value being called on the object
@@ -230,11 +245,6 @@ Map.prototype.playerMovement_ = function (index) {
 			nxtPlr = 0;
 		}
 		self.playerMovement_(nxtPlr);
-	}
-	var enemyOnSight = function() {
-		console.log("Enemy on sight. Initiate attack or defend");
-		gameTimeline.innerHTML = "Enemy on sight. Initiate attack or defend";
-		$( "button.accessible" ).show(); //show attack, defend btns
 	}
 	$( "button.accessible" ).hide(); //hide both attack and defend btns
 
@@ -429,9 +439,9 @@ var winnerName = document.getElementById('winner-name');
 var winnerPts = document.getElementById('winner-pts');
 var resultsCard_Btn = document.getElementById('resultsCard_Btn');
 
-var resultsCardWinnerImg; //this.cssClass;
-var resultsCardWinnerPts; //this.health;
-var resultsCardWinnerName; //this.name;
+var resultsCardWinnerImg; //this.cssClass in Character object blueprint
+var resultsCardWinnerPts; //this.health in Character
+var resultsCardWinnerName; //this.name in Character
 
 function gameResult() {
 	var width = window.innerWidth;
