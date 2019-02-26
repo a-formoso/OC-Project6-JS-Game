@@ -1,6 +1,6 @@
 /************************
-* TURN-BASED BOAR GAME
-***********************/
+* TURN-BASED BOARD GAME
+************************/
 
 /** Creating Map object instance: board
 =============================================================**/
@@ -260,7 +260,7 @@ Map.prototype.playerMovement_ = function (index) {
 			if (this.board[plPos.x+e][plPos.y].hasClass("wall")) {
 				break;
 			}
-			if (this.board[plPos.x-e][plPos.y].hasClass("player")) {
+			if (this.board[plPos.x+e][plPos.y].hasClass("player")) {
 				enemyOnSight();
 				break;
 			}
@@ -272,8 +272,12 @@ Map.prototype.playerMovement_ = function (index) {
 	}
 	//LEFT highlights (horizontal movement)
 	for (var i = 1; i < 4; i++) {
-		if (plPos.y-i >= 0) { //where y (colloms) index is equals or greater than 0, then add a class "accessible" to cell
-			if (this.board[plPos.x][plPos.y-i].hasClass("wall") || this.board[plPos.x][plPos.y-i].hasClass("player")) {
+		if (plPos.y-i >= 0) { 
+			if (this.board[plPos.x][plPos.y-i].hasClass("wall")) {
+				break;
+			}
+			if (this.board[plPos.x][plPos.y-i].hasClass("player")) {
+				enemyOnSight();
 				break;
 			}
 			if (this.board[plPos.x][plPos.y-i].hasClass("weapon") && !this.board[plPos.x][plPos.y-i].hasClass("wall") || !this.board[plPos.x][plPos.y-i].hasClass("player")) {
@@ -284,8 +288,12 @@ Map.prototype.playerMovement_ = function (index) {
 	}
 	//RIGHT highlights (horizontal movement)
 	for (var o = 1; o < 4; o++) {
-		if (plPos.y+o < 10) { //this.board[0].length = 10 (0-9 index)
-			if (this.board[plPos.x][plPos.y+o].hasClass("wall") || this.board[plPos.x][plPos.y+o].hasClass("player")) {
+		if (plPos.y+o < 10) {
+			if (this.board[plPos.x][plPos.y+o].hasClass("wall")) {
+				break;
+			}
+			if (this.board[plPos.x][plPos.y+o].hasClass("player")) {
+				enemyOnSight();
 				break;
 			}
 			if (this.board[plPos.x][plPos.y+o].hasClass("weapon") && !this.board[plPos.x][plPos.y+o].hasClass("wall") || !this.board[plPos.x][plPos.y+o].hasClass("player")) {
