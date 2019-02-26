@@ -17,18 +17,17 @@
       <!-- Game Header -->
     	<div class="header">
         <div class="players-container"> <!-- Player1 controls -->
-          <ul class="player-controls player1-controls">
-            <li><img src="images/player1.png" title="Axiom spaceship"/></li>
-            <li><button id="pl1-Attack" class="pl1-attack-btn attack-btn">Attack</button></li>
-            <li><button id="pl1-Defend" class="pl1-defend-btn defend-btn">Defend</button></li>
+          <ul class="player-area left-area">
             <li><span id="pl1-health-pts">100</span></li>
+            <li><img src="images/player1.png" title="Axiom spaceship"/></li>
           </ul>
-          <!-- New Game Button-->
-          <button id="new-game">New Game</button>
-          <ul class="player-controls player2-controls"> <!-- Player2 controls -->
-            <li><img src="images/player2.png" title="Bilkis spaceship"/></li>
-            <li><button id="pl2-Attack" class="pl2-attack-btn attack-btn">Attack</button></li>
-            <li><button id="pl2-Defend" class="pl2-defend-btn defend-btn">Defend</button></li>
+          <ul class="player-area mid-area">
+            <li><button type="button" id="attack-btn" class="pl-attack-btn accessible">Attack</button></li>
+            <li><button type="submit" id="new-game">New Game</button></li> <!-- New Game Button --> <!-- when no type "submit" button is the default value -->
+            <li><button type="button" id="defend-btn" class="pl-defend-btn accessible">Defend</button></li>
+          </ul>
+          <ul class="player-area right-area"> <!-- Player2 controls -->
+            <li><img src="images/player2.png" title="Bilkis spaceship" class="pl2-img"/></li>
             <li><span id="pl2-health-pts">100</span></li>
           </ul>
         </div>
@@ -45,15 +44,15 @@
   </div><!--/.wrapper -->
 
   <!-- Game Result -->
-    <div id="opacity-layer"></div>
-    <div id="result-popUp">
+    <div id="opacity-layer"></div> 
+    <div id="results-card">
       <div id="popUp-body">
         <div id="winner-img-wrapper"><img id="winner-img" src="images/player2.png"/></div>
-        <h2 id="winner-heading"><em id="winner-name">Bilkis</em> Wins!</h2>
-        <p id="winner-p"><span id="winner-pts">50</span>pts remaining</p>
+        <h2 id="winner-heading"><em id="winner-name">[Player X]</em></h2>
+        <p id="winner-p">retains <span id="winner-pts">[5]</span> pts</p>
       </div>
       <div id="popUp-footer">
-        <button id="popUp-newGame-btn">New Game</button>
+        <button type="button" id="resultsCard_Btn">Play Again</button><!-- “button” type has no default behaviour (eg submit form data) -->
       </div>
     </div>
 
@@ -61,7 +60,7 @@
   <script
     src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous">
+    crossOrigin="anonymous">
   </script>
   <script src="js/game.js"></script>
 </body>

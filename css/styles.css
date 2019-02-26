@@ -52,25 +52,43 @@ body {
 div.players-container {
   border-bottom: 1px solid #660099;
   border-radius: 5px 5px 0 0;
+  background-color: #00065a;
   display: flex;
-  padding: 4px 0px 0px;
+
+  align-items: center;
+  justify-content: center;
+
+  /*padding: 4px 0px 0px;
   margin-top: 0;
-  margin-bottom: 2px;
-  background-color: #00065a;
+  margin-bottom: 2px;*/
 }
-ul.player-controls {
+ul.player-area {
   /*border: 1px solid blue;*/
-  margin: 0 auto;
+  /*margin: 0 auto;
   padding-left: 0;
+  
+  background-color: #00065a;*/
   display: flex; 
-  background-color: #00065a;
+  /*width: 35%;*/
+  /*justify-content: center;*/
+  justify-content: space-evenly; /*horizonatl m alignment*/
+  align-items: center; /*vertical alignment*/
 }
-ul.player-controls li {
+ul.left-area {
+  /*align-self: flex-start;*/
+}
+ul.left-area, ul.mid-area, ul.right-area {
+  flex-grow: 1; /* default 0 */
+}
+ul.right-area {
+  /*align-self: flex-end;*/
+}
+ul li {
   list-style: none;
 }
 span, button {
-  height: 30px;
-  padding: 0 8px;
+  height: 34px;
+  padding: 0 10px;
   font-size: 14px;
 }
 button {
@@ -79,7 +97,7 @@ button {
   border-radius: 2px;
   letter-spacing: 0.5px;
 }
-button:hover {
+button#new-game:hover {
   cursor: pointer;
 }
 .accessible:hover {
@@ -89,14 +107,24 @@ button#new-game {
   border: 2px solid #73AD21;
   background-color: #AFC97E;
 }
-li button.pl1-attack-btn, li button.pl2-attack-btn {
+li button#attack-btn {
     background-color: #a70000;
     color:  #000;
 }
-ul.player-controls li img {
-  width: 30px;
+li button#attack-btn, li button#defend-btn, li button#new-game {
+    padding: 0 10px;
 }
-ul.player-controls li:last-child {
+/*ul.btn-area li {
+  display: inline-block;
+}*/
+ul.player-area li img {
+  width: 30px;
+  vertical-align: bottom;
+}
+ul.player-area li img.pl2-img {
+  transform: rotate(270deg);
+}
+ul.player-area li:first-child, ul.player-area li:last-child {
   background-color: #00065a;
   color: #9055A2;
   padding-top: 6px;
@@ -196,7 +224,7 @@ tr {
   background-color: #FDF3B7;
 }
 
-/*game results pop-up window*/
+/*'Game Over' pop-up window*/
 .wrapper, .game-container {
   /*display: none;*/
 }
@@ -211,7 +239,7 @@ tr {
   z-index: 10;
   display: none;
 }
-#result-popUp {
+#results-card {
   z-index: 10;
   position: fixed;
   width: 500px; 
@@ -222,7 +250,7 @@ tr {
 #popUp-body {
   background: white;
   border-radius: 5px 5px 0 0;
-  height: 200px;
+  height: 210px;
   border-style: solid;
   border-width: 2px 2px 0px 2px;
   border-color: #FFA60C
@@ -243,7 +271,7 @@ div#winner-img-wrapper img#winner-img {
   padding-top: 5px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  word-spacing: 5px;
+  word-spacing: 3px;
   text-align: center; 
   color: #4d0000; /* dark purple */
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -251,6 +279,8 @@ div#winner-img-wrapper img#winner-img {
 #popUp-body p#winner-p {
   color: #4d0000;
   font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 #popUp-footer {
   background-color: #FDF4B6;
@@ -262,7 +292,7 @@ div#winner-img-wrapper img#winner-img {
   border-bottom-right-radius: 7px; 
   border-bottom-left-radius: 7px;
 }
-button#popUp-newGame-btn {
+button#resultsCard_Btn {
   width: 160px;
   height: 60px;
   padding: 0 20px;
@@ -278,13 +308,13 @@ button#popUp-newGame-btn {
 
 /* Media Queries */
 @media only screen and (max-width: 1200px) {
-  ul.player-controls {
-   display: block; /*stack elements vertically, on their normal document flow*/
+ /* ul.player-area {
+   display: block; stack elements vertically, on their normal document flow
    text-align: center; 
-  }
-  .defend-btn {
+  }*/
+  /*.defend-btn {
     margin-top: 5px;
-  }
+  }*/
 }
 @media only screen and (max-width: 736px) {
   .wrapper {
@@ -295,18 +325,25 @@ button#popUp-newGame-btn {
    width: 100%;
    text-align: center; 
   }
-  .player2-controls li img {
-    padding-bottom: 4.94px;
+  button {
+    padding: 0 5px;
+    font-size: 10px;
   }
-  #new-game {
-    /*display: none;*/
-    margin-top: 35px;
-    height: 65px;
-    vertical-align: center;
+  span {
+     font-size: 10px; 
+  }
+  li span#pl2-health-pts, li span#pl1-health-pts {
+    font-weight: 600;
+    font-size: 10px;
+    padding: 0 5px;
+  }
+  li button#attack-btn, li button#defend-btn, li button#new-game {
+     padding: 0 4px; 
   }
   #game-map {
     width: 100%;
     height: 100vh; 
   }
 }
+
 
