@@ -217,12 +217,14 @@ Map.prototype.players_ = function() {
 Map.prototype.playerMovement_ = function (index) {
 	if (this.players[index].health <= 0) { 
 		console.log(this.players[index].healthCheck());
+		// document.getElementById('new-game').removeAttribute('disable');
         return setTimeout(gameResult, 800); //setTimeout(callback, delay)
 	} else {
 		var enemyOnSight = function() {
 			console.log("Enemy on sight. Initiate attack or defend");
 			gameTimeline.innerHTML = "Enemy on sight. Initiate attack or defend";
 			$( "button.accessible" ).show(); //show attack, defend btns
+			// document.getElementById('new-game').setAttribute('disable', 'true');
 		}
 	} 
 	var highlightedCellsArr = [];
@@ -418,14 +420,27 @@ gameMap.players_();
 gameMap.playerMovement_(index);
 
 
+/** Game Rules card
+=============================================================**/
+//displaying Game Rules on page load
+$(document).ready(function () {
+    $("#welcome-card").show();
+});
+//Hiding Game Rules when user clicks to "Start" the game
+var start_game = document.getElementById('start-game');
+start_game.addEventListener('click', () => {
+	document.getElementById('welcome-card').style.display = "none";
+});
+
+
 /** New Game button
 =============================================================**/
 var newGame = document.getElementById('new-game');
-newGame.onclick = (e) => {
-	document.location.reload();
-	e.preventDefault();
+newGame.onclick = ($e) => {
+	document.location.reload(); //we are just refreshing the browser, the ideal is to re-start the game
+	$e.preventDefault();
+	// $(".game-outer-container").load("new-game.html");
 }
-
 
 /** 'Game Over' pop up window
 =============================================================**/
@@ -459,3 +474,4 @@ resultsCard_Btn.addEventListener('click', () => { //arrow function as a callback
 	resultsCard.style.display = "none";
 	opacityLayer.style.display = "none";
 });
+// gameResult();
