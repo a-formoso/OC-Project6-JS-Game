@@ -326,7 +326,7 @@ button#resultsCard_Btn {
 }
 
 /** MEDIA QUERIES **/
-@media only screen and (min-width: 320px) and (max-width: 767px) { /*before mini iPad + device sizes*/
+@media only screen and (min-width: 320px) and (max-width: 736px) { /*before mini iPad + device sizes*/
   .header {
     border-radius: 0px;
   }
@@ -390,7 +390,7 @@ button#resultsCard_Btn {
     height: 100vh;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 737px) {
   .game-outer-container {
     background-image:
     linear-gradient(

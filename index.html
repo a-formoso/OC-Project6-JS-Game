@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link Listing Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Game RULES -->
+  <div id="welcome-card">
+    <div id="how-to-play">
+      <div class="how-to-play-head">
+        <h1>Pandim War</h1>
+        <h2>The Badges Of Knowledge</h2>
+      </div>
+      <div class="how-to-play-body">
+        <div class="p-wrapper red">
+          <p>Move players vertically, horizontally by clicking on the highlighted (yellow) cells</p><br/>
+          <p>Collect new weapons or use default weapon, <em>OC</em>, which carries 10 pts damage</p><br/>
+          <p>Any player within range (3 cells) can either be attacked or defended against</p>
+        </div>
+      </div>
+      <div class="how-to-play-bottom">
+        <button id="start-game">Start</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME BOARD -->
+  <div class="game-outer-container">
+    <div class="game-inner-container">
+      <!-- Game Header -->
+      <div class="header">
+        <div class="players-container"> <!-- Player1 controls -->
+          <ul class="player-area left-area">
+            <li><span id="pl1-health-pts">100</span></li>
+            <li><img src="images/player1.png" title="Axiom spaceship"/></li>
+          </ul>
+          <ul class="player-area mid-area">
+            <li><button type="button" id="attack-btn" class="pl-attack-btn accessible">Attack</button></li>
+            <li><button type="submit" id="new-game">New Game</button></li> <!-- New Game Button --> <!-- when no type "submit" button is the default value -->
+            <li><button type="button" id="defend-btn" class="pl-defend-btn accessible">Defend</button></li>
+          </ul>
+          <ul class="player-area right-area"> <!-- Player2 controls -->
+            <li><img src="images/player2.png" title="Bilkis spaceship" class="pl2-img"/></li>
+            <li><span id="pl2-health-pts">100</span></li>
+          </ul>
+        </div>
+        <!-- Game Timeline -->
+        <div class="timeline-container">
+          <span id="timeline">Welcome to the adventure!</span>
+        </div>
+      </div>
+      <!-- Game Board -->
+      <table id="game-board" cellspacing="1">
+        <tbody id="grid"></tbody><!-- game grid -->
+      </table>  
+    </div>
+  </div><!--/.game-outer-container -->
+
+  <!-- GAME OVER -->
+  <div id="opacity-layer"></div> 
+  <!-- Game Result -->
+  <div id="results-card">
+    <div id="popUp-body">
+      <div id="winner-img-wrapper"><img id="winner-img" src="images/player2.png"/></div>
+      <h2 id="winner-heading"><em id="winner-name">[Player X]</em></h2>
+      <p id="winner-p">retains <span id="winner-pts">[5]</span> pts</p>
+    </div>
+    <div id="popUp-footer">
+      <button type="button" id="resultsCard_Btn">Play Again</button><!-- “button” type has no default behaviour (eg submit form data) -->
+    </div>
+  </div>
+
+  <!-- jQuery via CDN -->
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossOrigin="anonymous">
+  </script>
+  <!-- Game JS Files -->
+  <script src="js/main.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/walls.js"></script>
+  <script src="js/weapons.js"></script>
+  <script src="js/players.js"></script>
+  <script src="js/pl-movement.js"></script>
+  <script src="js/game-over.js"></script>
+</body>
+
+</html>
