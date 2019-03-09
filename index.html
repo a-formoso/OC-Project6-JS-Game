@@ -81,9 +81,11 @@
 
 
   <script>
+    document.querySelector('.game-outer-container').style.display = "none";
     //Start Game
     document.getElementById('start-game').addEventListener('click', () => {
         document.getElementById('welcome-card').style.display = "none";
+        $('.game-outer-container').show();
     });
     // New Game button
     var newGame = document.getElementById('new-game');
