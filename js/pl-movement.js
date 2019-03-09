@@ -8,7 +8,9 @@ Map.prototype.playerMovement_ = function (index) {
 		var enemyOnSight = function() {
 			console.log("Enemy on sight. Initiate attack or defend");
 			gameTimeline.innerHTML = "Enemy on sight. Initiate attack or defend";
-			$( "button.accessible" ).show(); 
+			// $("button.accessible").show(); //400ms default
+			$("button.accessible").fadeIn(600); 
+
 		}
 	} 
 	var highlightedCellsArr = [];
@@ -31,7 +33,7 @@ Map.prototype.playerMovement_ = function (index) {
 		}
 		self.playerMovement_(nxtPlr);
 	}
-	$( "button.accessible" ).hide(); //hide both attack and defend btns
+	$("button.accessible").hide(); //hide both attack and defend btns
 
 	//UPPER highlights (vertical movement)
 	for (var a = 1; a < 4; a++) {

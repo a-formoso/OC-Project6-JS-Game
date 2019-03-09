@@ -25,15 +25,3 @@ console.log(gameMap);
 
 
 
-// Hiding Game Rules when user clicks to "Start" the game
-var start_game = document.getElementById('start-game');
-start_game.addEventListener('click', () => {
-	document.getElementById('welcome-card').style.display = "none";
-});
-
-// New Game button
-var newGame = document.getElementById('new-game');
-newGame.onclick = (e) => {
-	document.location.reload();
-	e.preventDefault();
-}

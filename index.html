@@ -79,6 +79,20 @@
     </div>
   </div>
 
+
+  <script>
+    //Start Game
+    document.getElementById('start-game').addEventListener('click', () => {
+        document.getElementById('welcome-card').style.display = "none";
+    });
+    // New Game button
+    var newGame = document.getElementById('new-game');
+    newGame.onclick = (e) => {
+      document.location.reload();
+      // e.preventDefault();
+    }
+  </script>
+
   <!-- jQuery via CDN -->
   <script
     src="http://code.jquery.com/jquery-3.2.1.min.js"

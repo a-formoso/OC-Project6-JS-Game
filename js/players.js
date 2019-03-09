@@ -32,6 +32,10 @@ var character = {
     attack: function (target) {
         //1 - if healthy, attack enemy
         if (this.health > 0) {
+        	//adding sound effect to attack
+        	var attacking_Sound = new Audio("audio/attack.mp3");
+		    attacking_Sound.play();
+
             var damage = this.currentWeapon.damage; 
             if (target.defence.status === "on") {
             	damage = damage/2; //inflict 50% damage
@@ -87,6 +91,10 @@ var character = {
         }
 	},
 	defend: function () {
+		//adding sound effect to attack
+		var defending_Sound = new Audio("audio/defend.wav");
+		defending_Sound.play();
+
 		this.defence.status = 'on';
 	    console.log(this.cssClass + " chooses to defend. Defence status set to: " + this.defence.status);
 	    gameTimeline.innerHTML = this.cssClass + " chooses to defend. Defence status set to: " + this.defence.status;

@@ -15,6 +15,10 @@ var resultsCardWinnerPts; //this.health in Character
 var resultsCardWinnerName; //this.name in Character
 
 function gameResult() {
+	//adding sound effect when a player looses
+	var defending_Sound = new Audio("audio/game-over.wav");
+	defending_Sound.play(); 
+
 	var width = window.innerWidth;
 	opacityLayer.style.display = "block";
 	resultsCard.style.display = "block";
@@ -28,6 +32,7 @@ function gameResult() {
 }
 resultsCard_Btn.addEventListener('click', () => { 
 	resultsCard.style.display = "none";
+	// $('#results-card').slideUp(800);
 	opacityLayer.style.display = "none";
 });
 // gameResult();
