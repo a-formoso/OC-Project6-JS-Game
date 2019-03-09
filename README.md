@@ -24,7 +24,7 @@
 January 2019
 
 
-### Play the game by clicking [here](http://openclassrooms.com/)
+### Play the game [(https://alexandreformoso.github.io/OC-Project6-JS-Game/)]
 
 ![game printscreen](/images/game-preview.png)
 
