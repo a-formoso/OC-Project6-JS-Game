@@ -16,15 +16,14 @@
 * If players cross over adjacent squares (horizontally or vertically), a battle begins
 * During battle: each player attacks in turn
 * During battle: the damage depends on the player's weapon
-* During battle: the player can choose to attack or defend against the next shot
-* During battle: if a player chooses to defend, they sustain 50% less damage than normal
+* During battle: if a player chooses to defend against the next shot, they only sustain 50% damage
 * As soon as the life points of a player (initially 100) falls to 0, they lose. A message appears and the game is over.
 
 #### By [*Alexandre Formoso*](http://aformoso.com)
-January 2019
+March 2019
 
 
-### Play the game :point_right: [https://alexandreformoso.github.io/OC-Project6-JS-Game/](https://alexandreformoso.github.io/OC-Project6-JS-Game/)
+### Play the game here :point_right: [https://alexandreformoso.github.io/OC-Project6-JS-Game/](https://alexandreformoso.github.io/OC-Project6-JS-Game/)
 
 ![game printscreen](/images/game-preview.png)
 

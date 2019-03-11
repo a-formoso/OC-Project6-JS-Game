@@ -85,6 +85,9 @@
     //Start Game
     document.getElementById('start-game').addEventListener('click', () => {
         document.getElementById('welcome-card').style.display = "none";
+        //adding sound effect
+        var starting_Sound = new Audio("audio/start-end.wav");
+        starting_Sound.play(); 
         $('.game-outer-container').show();
     });
     // New Game button

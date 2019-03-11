@@ -121,7 +121,6 @@ Map.prototype.playerMovement_ = function (index) {
                 self.players[index].defend();
         }
         if ($(e.target).is("td.accessible")) {
-  
 	        var plPos = self.players[index].position;
 	        var cWp = self.players[index].currentWeapon.position;
 	        var cWc = self.players[index].currentWeapon.cssClass;
@@ -146,6 +145,10 @@ Map.prototype.playerMovement_ = function (index) {
 		        console.log("new weapon position = ", cWp);
 	        }
 	        else { 
+	        	//adding sound effect
+				var newWeapon_Sound = new Audio("audio/affected.wav");
+				newWeapon_Sound.play(); 
+
 	        	$(e.target).removeClass('accessible'); 
 	        	self.board[plPos.x][plPos.y].addClass(cWc);
 	        	console.log("currentWeapon class dropped: " + self.players[index].currentWeapon.cssClass);

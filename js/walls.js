@@ -1,4 +1,4 @@
-/** Creating Map object instance: walls (game obstacles)
+/** Creating Map object instance, walls (game obstacles)
 =============================================================**/
 
 Map.prototype.walls_ = function() {

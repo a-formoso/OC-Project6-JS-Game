@@ -1,4 +1,4 @@
-/** Creating the "weapon" class
+/** Creating the weapons' blueprint, "weapon"
 ===============================================**/
 var weapon = {
   initWeapon: function (type, name, damage, cssClass) {
@@ -10,7 +10,7 @@ var weapon = {
   }
 }; 
 
-/** Creating Map object instance: weapons_
+/** Creating Map object instance, weapons_
 =============================================================**/
 Map.prototype.weapons_ = function() {
 	var html = Object.create(weapon);

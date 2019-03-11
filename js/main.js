@@ -3,7 +3,7 @@
 ************************/
 
 
-/** Creating Map "class"
+/** Creating Map blueprint (or "class")
 =============================================================**/
 function Map(nRows, nColumns, nWalls, nWeapons) { 
 	this.x = nRows;
@@ -19,7 +19,7 @@ function Map(nRows, nColumns, nWalls, nWeapons) {
 } 
 
 /** Map Instantiation 
-=============================================================**/
+======================================**/
 var gameMap = new Map(9, 10, 12, 4); 
 
 // console.log(gameMap);

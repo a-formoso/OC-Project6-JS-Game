@@ -1,6 +1,6 @@
 var gameTimeline = document.getElementById('timeline');
 
-/** Creating the players' blueprint, "character"
+/** Creating players' blueprint, "character"
 ===============================================**/
 var character = { 
     initCharacter: function (name, health, cssClass) {
@@ -32,7 +32,7 @@ var character = {
     attack: function (target) {
         //1 - if healthy, attack enemy
         if (this.health > 0) {
-        	//adding sound effect to attack
+        	//adding sound effect
         	var attacking_Sound = new Audio("audio/attack.mp3");
 		    attacking_Sound.play();
 
@@ -91,7 +91,7 @@ var character = {
         }
 	},
 	defend: function () {
-		//adding sound effect to attack
+		//adding sound effect
 		var defending_Sound = new Audio("audio/defend.wav");
 		defending_Sound.play();
 
@@ -101,7 +101,7 @@ var character = {
 	}
 };
 
-/** Creating Map object instance: players_
+/** Creating Map object instance, players_
 =============================================================**/
 Map.prototype.players_ = function() {
 	player1 = Object.create(character);

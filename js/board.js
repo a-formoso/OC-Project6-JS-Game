@@ -1,4 +1,4 @@
-/** Creating Map object instance: board
+/** Creating Map object instance, "board"
 =============================================================**/
 
 Map.prototype.board_ = function() { 
