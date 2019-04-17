@@ -19,7 +19,7 @@
 * During battle: if a player chooses to defend against the next shot, they only sustain 50% damage
 * As soon as the life points of a player (initially 100) falls to 0, they lose. A message appears and the game is over.
 
-#### By [*Alexandre Formoso*](http://aformoso.com)
+#### By [*Alexandre Formoso*](https://aformoso.dev)
 March 2019
 
 
