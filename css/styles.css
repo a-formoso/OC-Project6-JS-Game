@@ -392,15 +392,15 @@ button#resultsCard_Btn {
 }
 @media only screen and (min-width: 737px) {
   .game-outer-container {
-    background-image:
+    /*background-image:
     linear-gradient(
       to right, 
       red, 
       #f06d06, 
       rgb(255, 255, 0), 
       green
-    );
-    
+    );*/
+    background-color: #333; /*#FDF4B6;*/
     top: 0;
     left: 0;
     align-items: center;
