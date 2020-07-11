@@ -23,7 +23,7 @@
 March 2019
 
 
-### Play the game here :point_right: [https://alexandreformoso.github.io/OC-Project6-JS-Game/](https://alexandreformoso.github.io/OC-Project6-JS-Game/)
+### Play the game here :point_right: [https://a-formoso.github.io/OC-Project6-JS-Game/](https://a-formoso.github.io/OC-Project6-JS-Game/)
 
 ![game printscreen](/images/game-preview.png)
 
