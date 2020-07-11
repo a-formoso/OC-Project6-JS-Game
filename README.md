@@ -19,11 +19,11 @@
 * During battle: if a player chooses to defend against the next shot, they only sustain 50% damage
 * As soon as the life points of a player (initially 100) falls to 0, they lose. A message appears and the game is over.
 
-#### By [*Alexandre Formoso*](https://aformoso.dev)
+#### By [*Alexandre Formoso*](https://aformoso.com)
 March 2019
 
 
-### Play the game here :point_right: [https://alexandreformoso.github.io/OC-Project6-JS-Game/](https://alexandreformoso.github.io/OC-Project6-JS-Game/)
+### Play the game here :point_right: [https://a-formoso.github.io/OC-Project6-JS-Game/](https://a-formoso.github.io/OC-Project6-JS-Game/)
 
 ![game printscreen](/images/game-preview.png)
 
